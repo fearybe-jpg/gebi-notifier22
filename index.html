@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ገቢ ማስታወቂያ (Gebi Notifier)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f172a;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .card {
+            background-color: #1e293b;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 { color: #38bdf8; font-size: 24px; margin-bottom: 20px; }
+        .amount { font-size: 36px; color: #4ade80; font-weight: bold; margin: 15px 0; }
+        button {
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+        }
+        button:hover { background-color: #0369a1; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>🔔 የገቢ ማስታወቂያ</h1>
+        <p>የመጨረሻ ገቢ መጠን</p>
+        <div class="amount" id="displayAmount">100.00 ብር</div>
+        <p id="senderDetails">ከአበበ በቀለ (Telebirr)</p>
+        <button onclick="testSpeech()">ድምጽ ፈትሽ (Test Voice)</button>
+    </div>
+
+    <script>
+        function testSpeech() {
+            let text = "ከአበበ በቀለ አንድ መቶ ብር ገቢ ሆኗል";
+            let utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'am-ET';
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
+</body>
+</html>
